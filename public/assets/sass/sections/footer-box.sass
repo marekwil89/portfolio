@@ -1,0 +1,34 @@
+.footer-box
+	display: flex
+	justify-content: center
+	align-items: center
+	flex-wrap: wrap
+	background-color: $gray-color
+	color: $white-color
+
+
+
+	.footer-info
+		padding: 20px 0
+		min-width: 600px
+		float: left
+
+		h2
+			text-decoration: underline
+
+	.copyright
+		background-color: darken($gray-color, 10%)
+		padding: 30px
+		width: 100%
+		font-size: 18px
+		text-align: center
+
+		i
+			color: $white-color
+			font-size: 18px
+
+@media (max-width: 620px)
+	.footer-box
+		.footer-info
+			text-align: center
+			min-width: 100%

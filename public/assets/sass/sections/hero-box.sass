@@ -1,0 +1,61 @@
+.hero-box
+  color: $gray-color
+  background-color: $white-color
+
+  .hero-header
+    text-align: center
+    min-width: 400px
+    display: flex
+    align-items: center
+    justify-content: flex-end
+    flex-direction: column
+    min-height: 25vh
+
+  .hero-articles
+    display: flex
+    display: -ms-flexbox
+    display: -webkit-flex
+    flex-wrap: wrap
+    align-items: center
+    justify-content: center
+    min-height: 85vh
+
+
+    .hero-ul
+      box-sizing: border-box
+      width: 350px
+      padding: 5px
+
+      .hero-atr
+        text-align: center
+        list-style: none
+        opacity: 0
+        transition: 1s all ease-in-out
+
+        i
+          text-shadow: 1px -1px 1px rgba(150, 150, 150, 1)
+          color: $main-color
+
+        &.is-showing
+          opacity: 1
+
+        p
+          padding-bottom: 12px
+
+        .fa
+          font-size: 35px
+
+
+
+
+@media (max-width: 1020px)
+  .hero-box
+    .hero-header
+      min-width: 100%
+    .hero-articles
+      .author-photo
+        min-width: 280px
+        height: 340px
+
+      .hero-ul
+        width: 100%

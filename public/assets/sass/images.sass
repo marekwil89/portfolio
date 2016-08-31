@@ -1,0 +1,96 @@
+//header background image
+
+.header-image
+    background-repeat: no-repeat
+    background-image: url('../img/image8.jpg')
+    background-position: center
+    background-size: 110% 110%
+
+
+
+.flip-box
+    width: 300px
+    height: 385px
+    position: relative
+
+
+
+    &:hover .flipper, &.hover .flipper
+        transform: rotateY(180deg)
+        width: 300px
+        height: 385px
+        cursor: pointer
+
+.flipper
+    transition: 0.6s
+    transform-style: preserve-3d
+
+.front, .back
+    border-radius: 50%
+    backface-visibility: hidden
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+
+    .hover-me
+        border-radius: 10px
+        position: absolute
+        top: 0px
+        right: 0px
+        background-color: $medium-gray
+        color: $white-color
+        z-index: 7
+        padding: 9px
+
+    img
+        width: 300px
+        height: 385px
+        border-radius: 50%
+
+
+
+.front
+    z-index: 5
+    transform: rotateY(0deg)
+
+.back
+    transform: rotateY(180deg)    
+
+
+
+
+
+//projects-box images
+
+.image1
+    background-image: url('../img/image1.jpg')
+    background-size: cover
+    background-position: center
+
+.image2
+    background-image: url('../img/image2.jpg')
+    background-size: cover
+    background-position: center
+
+.image3
+    background-image: url('../img/image3.jpg')
+    background-size: cover
+    background-position: center
+
+.image4
+    background-image: url('../img/image4.jpg')
+    background-size: cover
+    background-position: center
+
+
+//contact image
+
+.contact-image
+    background-image: url('../img/image9.jpg')
+    background-size: cover
+    background-attachment: fixed
+
+
+
