@@ -26,8 +26,6 @@ span {
     color: #e23237; }
   span .underscore {
     color: #0071b5; }
-  span .socket {
-    color: #db7aee; }
   span .npm {
     color: #cb3837; }
   span .gulp {
@@ -161,12 +159,14 @@ span {
                   transition: 0.3s all ease-in-out; }
           .header-box .navbar ul li a:hover {
             color: #ff3333; }
+          .header-box .navbar ul li a.active {
+            color: #ff3333; }
           .header-box .navbar ul li a i {
             font-size: 24px;
             -webkit-transition: 0.3s all ease-in-out;
                     transition: 0.3s all ease-in-out; }
             .header-box .navbar ul li a i:hover {
-              color: #3B5998; }
+              color: #ff3333; }
     .header-box .navbar .logo {
       line-height: 51px;
       text-transform: uppercase;
@@ -259,7 +259,7 @@ span {
       font-size: 36px; }
     .header-box .main-box .kicker {
       padding: 0 5px;
-      text-align: justify;
+      text-align: center;
       color: #EEEEEE;
       font-size: 19px; } }
 .stats-box {
@@ -307,7 +307,7 @@ span {
 
 @media (max-width: 1020px) {
   .stats-box {
-    min-height: 70vh; }
+    min-height: 50vh; }
     .stats-box .single-stat {
       font-size: 13px;
       text-align: center;
@@ -391,7 +391,17 @@ span {
     width: 50%;
     min-height: 200px; }
     .projects-box .projects-gallery .project .mask {
-      top: 0; } }
+      top: 0px;
+      opacity: 1; } }
+@media (max-width: 840px) {
+  .projects-box .projects-header {
+    text-align: center; }
+  .projects-box .projects-gallery .project {
+    width: 50%;
+    min-height: 200px; }
+    .projects-box .projects-gallery .project .mask {
+      top: 0px;
+      opacity: 1; } }
 @media (max-width: 480px) {
   .projects-box .projects-gallery .project {
     width: 100%; } }
@@ -748,6 +758,9 @@ span {
     -webkit-transform: scale3d(1, 1, 1);
             transform: scale3d(1, 1, 1); }
   50% {
+    -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1); }
+  70% {
     -webkit-transform: scale3d(1.1, 1.1, 1.1);
             transform: scale3d(1.1, 1.1, 1.1); }
   to {
@@ -759,6 +772,9 @@ span {
     -webkit-transform: scale3d(1, 1, 1);
             transform: scale3d(1, 1, 1); }
   50% {
+    -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1); }
+  70% {
     -webkit-transform: scale3d(1.1, 1.1, 1.1);
             transform: scale3d(1.1, 1.1, 1.1); }
   to {
@@ -767,8 +783,8 @@ span {
 .pulse {
   -webkit-animation-iteration-count: infinite;
           animation-iteration-count: infinite;
-  -webkit-animation-duration: 0.4s;
-  animation-duration: 0.4s;
+  -webkit-animation-duration: 0.8s;
+  animation-duration: 0.8s;
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
   -webkit-animation-name: pulse;

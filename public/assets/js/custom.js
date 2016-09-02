@@ -2,10 +2,6 @@ $(document).ready(function(){
 
   var startCount = true
 
-  if (GetIEVersion() > 0){
-    alert("Nie robię stron pod internet exploler");
-    window.location.replace("http://stackoverflow.com");
-  }
      
   moveImage('.header-image')
 
@@ -18,10 +14,10 @@ $(document).ready(function(){
 
     if(wScroll > $('.stats-box').offset().top - ($(window).height()/1.9)){
 
-      countMe('.count1')
+      countMe('.count1', '+')
       countMe('.count2')
       countMe('.count3')
-      countMe('.count4')
+      countMe('.count4', '+')
 
       startCount = false
 
@@ -37,9 +33,17 @@ $(document).ready(function(){
   anchorScroll()
 
 
-  function countMe(element){
+  function countMe(element, add){
+
+    
 
     if(startCount == true){
+      var plus = ''
+
+       if(add){
+        plus = add
+       }
+
        var finish = $(element).attr('finish');
        var start = $(element).attr('start');
        var speed = $(element).attr('speed');
@@ -49,7 +53,7 @@ $(document).ready(function(){
         if(start == finish){
           clearInterval(count);
         }
-        $(element).html(start) 
+        $(element).html(start + ' '+ plus) 
       }, speed)
     }
     
@@ -65,37 +69,40 @@ function sendMessage(){
 
   $("#send_message").click(function(){
 
+    $(".errors").text('')
+
     var user = {
       name: $("#name").val(),
       email: $("#email").val(),
       text: $("#text").val()
     }
+    $(".loading").text('ładowanie...').fadeIn("slow").delay(600).fadeOut("slow", function(){
 
-    $.post( "message/post", user, function( data ) {
+      $.post( "message/post", user, function( data ) {
 
-      if(data.status === 'alert'){
-        $(".success").text('')
-        $('.contact-form').addClass('shake');
-        $('.contact-form').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
-          $('.contact-form').removeClass('shake')
-        });
-        var errors = [];
-        for(var i = 0; i < data.response.length; i++){
-          errors.push('<li>' + data.response[i] + '</li>');
+        if(data.status === 'alert'){
+          $(".success").text('')
+          $('.contact-form').addClass('shake');
+          $('.contact-form').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+            $('.contact-form').removeClass('shake')
+          });
+          var errors = [];
+          for(var i = 0; i < data.response.length; i++){
+            errors.push('<li>' + data.response[i] + '</li>');
+          }
+          $(".errors").html(errors.join(''));  
         }
-        $(".errors").html(errors.join(''));  
-      }
-      if(data.status === 'success'){
-        $(".loading").text('ładujemy...').fadeIn("slow").delay(500).fadeOut("slow", function(){
-          $(".errors").text('');
-          $("#name").val('');
-          $("#email").val('');
-          $("#text").val('');
-          $(".success").text(data.response)      
-        });
-        
-      }
-    
+        if(data.status === 'success'){
+
+            $(".errors").text('');
+            $("#name").val('');
+            $("#email").val('');
+            $("#text").val('');
+            $(".success").text(data.response)      
+          
+          
+        }
+      });
     });
   });
 }
@@ -160,21 +167,3 @@ function anchorScroll(){
     }}
   });
 }
-
-
-function GetIEVersion() {
-  var sAgent = window.navigator.userAgent;
-  var Idx = sAgent.indexOf("MSIE");
-
-  if (Idx > 0) 
-    return parseInt(sAgent.substring(Idx+ 5, sAgent.indexOf(".", Idx)));
-
-  else if (!!navigator.userAgent.match(/Trident\/7\./)) 
-    return 11;
-
-  else
-    return 0;
-}
-
-
-

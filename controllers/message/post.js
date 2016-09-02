@@ -25,8 +25,8 @@ function validate(req, res, next){
    errors.push('Nieprawidłowy format pola EMAIL');
 
   }
-  if(validator.isLength(req.body.email, {min: 1, max: 30}) === false){
-   errors.push('Pole EMAIL musi być mailem przekraczać 30 znaków')
+  if(validator.isLength(req.body.email, {min: 1, max: 50}) === false){
+   errors.push('Pole EMAIL nie może przekraczać 50 znaków')
 
   }
   if(validator.isLength(req.body.text, {min: 1, max: 200}) === false){
