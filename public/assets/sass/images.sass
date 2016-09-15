@@ -6,7 +6,24 @@
     background-position: center
     background-size: 110% 110%
 
+    .cloud
+        position: absolute
+        top: 0
+        right: 0
+        left: 0
+        bottom: 0
+        background-size: cover
+        background-repeat: repeat-x
 
+        
+        &.first
+            background-image: url('../img/cloud1.png')
+            background-position: top
+
+
+        &.second
+            background-image: url('../img/cloud2.png')
+            background-position: bottom
 
 .flip-box
     width: 300px
@@ -90,7 +107,12 @@
 .contact-image
     background-image: url('../img/image9.jpg')
     background-size: cover
-    background-attachment: fixed
+    background-repeat: no-repeat
+    background-position: left
+    // background-attachment: fixed
 
 
-
+@media (max-width: 760px)
+    .header-image
+        .cloud
+            display: none

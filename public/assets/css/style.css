@@ -36,6 +36,20 @@ span {
   background-image: url("../img/image8.jpg");
   background-position: center;
   background-size: 110% 110%; }
+  .header-image .cloud {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-size: cover;
+    background-repeat: repeat-x; }
+    .header-image .cloud.first {
+      background-image: url("../img/cloud1.png");
+      background-position: top; }
+    .header-image .cloud.second {
+      background-image: url("../img/cloud2.png");
+      background-position: bottom; }
 
 .flip-box {
   width: 300px;
@@ -107,10 +121,14 @@ span {
   background-position: center; }
 
 .contact-image {
-  background-image: url("../img/image9.jpg");
+  background-image: url(https://images.unsplash.com/photo-1471174466996-0aa69dbda661?dpr=1&auto=format&crop=entropy&fit=crop&w=1500&h=1202&q=80&cs=tinysrgb);
   background-size: cover;
-  background-attachment: fixed; }
+  background-repeat: no-repeat;
+  background-position: left; }
 
+@media (max-width: 760px) {
+  .header-image .cloud {
+    display: none; } }
 .header-box {
   position: relative;
   min-height: 100vh;
@@ -393,15 +411,6 @@ span {
     .projects-box .projects-gallery .project .mask {
       top: 0px;
       opacity: 1; } }
-@media (max-width: 840px) {
-  .projects-box .projects-header {
-    text-align: center; }
-  .projects-box .projects-gallery .project {
-    width: 50%;
-    min-height: 200px; }
-    .projects-box .projects-gallery .project .mask {
-      top: 0px;
-      opacity: 1; } }
 @media (max-width: 480px) {
   .projects-box .projects-gallery .project {
     width: 100%; } }
@@ -429,6 +438,8 @@ span {
         -ms-flex-direction: column;
             flex-direction: column;
     min-height: 25vh; }
+    .hero-box .hero-header .hero-text span {
+      color: #ff3333; }
   .hero-box .hero-articles {
     display: -webkit-box;
     display: flex;
@@ -454,8 +465,8 @@ span {
         text-align: center;
         list-style: none;
         opacity: 0;
-        -webkit-transition: 1s all ease-in-out;
-                transition: 1s all ease-in-out; }
+        -webkit-transition: 300ms all ease-in-out;
+                transition: 300ms all ease-in-out; }
         .hero-box .hero-articles .hero-ul .hero-atr i {
           text-shadow: 1px -1px 1px #969696;
           color: #ff3333; }
@@ -470,8 +481,8 @@ span {
   .hero-box .hero-header {
     min-width: 100%; }
   .hero-box .hero-articles .author-photo {
-    min-width: 280px;
-    height: 340px; }
+    min-width: 250px;
+    height: 310px; }
   .hero-box .hero-articles .hero-ul {
     width: 100%; } }
 .contact-box {
