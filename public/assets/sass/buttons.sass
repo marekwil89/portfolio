@@ -1,27 +1,45 @@
 //buttons
 
 .button
-    border: 1px solid $white-color
-    background-color: transparent
-    font-weight: 700
     text-transform: uppercase
-    color: $white-color
     border-radius: 3px
-    height: 46px
-    padding: 0 26px
-    font-size: 15px
     outline: 0
     display: inline-block
     letter-spacing: 2px
-    width: 100%
+    box-sizing: border-box
     text-align: center
     transition: 0.5s all ease-in-out
 
-    &:hover
-        cursor: pointer
-        background-color: $main-color
-        border: 1px solid $main-color
+
+    &.send
+        border: 1px solid $white-color
+        background-color: transparent
+        font-weight: 700
         color: $white-color
+        width: 100%
+        font-size: 15px
+        padding: 0 26px
+        height: 46px
+
+        &:hover
+            cursor: pointer
+            background-color: $main-color
+            border: 1px solid $main-color
+            color: $white-color
+
+    &.open-modal
+        border: 0px
+        background-color: $facebook-color
+        color: $white-color
+        font-size: 35px
+        padding: 10px 15px
+        box-shadow: 10px 10px 5px 0px rgba($real-light ,0.75)
+
+        &:hover
+            transform: scale(1.1,1.1)
+            cursor: pointer
+            box-shadow: 15px 15px 10px 0px rgba($real-light ,0.75)
+
 
 
 

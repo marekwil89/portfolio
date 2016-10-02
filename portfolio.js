@@ -13,5 +13,5 @@ app.use(express.static(__dirname + "/public"));
 
 app.use('/message', message)
 
-app.listen(9000);
-console.log("server running on port 9000")
+app.listen(9001);
+console.log("server running on port 9001")

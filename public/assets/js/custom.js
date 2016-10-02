@@ -25,12 +25,12 @@ $(document).ready(function(){
 
   //start functions
 
-  moveClouds('.first', 50)
-  moveClouds('.second', 10)
+  moveClouds('.first', 50);
+  moveClouds('.second', 10);
   sendMessage();
   openNav();
   anchorScroll();
-
+  showContactForm();
 
   //count function
 
@@ -78,10 +78,6 @@ function sendMessage(){
 
         if(data.status === 'alert'){
           $(".success").text('');
-          $('.contact-form').addClass('shake');
-          $('.contact-form').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
-            $('.contact-form').removeClass('shake');
-          });
           var errors = [];
           for(var i = 0; i < data.response.length; i++){
             errors.push('<li>' + data.response[i] + '</li>');
@@ -128,9 +124,8 @@ function moveClouds(img, speed){
   var i = 0
   setInterval(function(){
       i++
-
       $(img).css('background-position', i + 'px 0')
-  }, speed)    
+  }, speed)
 }
 
 //change color after using scroll
@@ -163,3 +158,14 @@ function anchorScroll(){
     }}
   });
 }
+
+//show contact form
+
+function showContactForm(){
+  $(".open-modal").click(function(){
+    $(".overlay").addClass('is-showing');
+    $(".contact-form").addClass('appear');
+  })
+}
+
+

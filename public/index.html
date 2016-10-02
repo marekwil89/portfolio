@@ -193,36 +193,38 @@
     </div>
   </section>
 
-
-  <section class="contact-box contact-image" id="contact">
-    <form name="my-form" onsubmit="return false" class="contact-form">
-  
-      <div class="contact-header">
-        <h2>Skontaktuj się</h2>
-      </div>
-
-      <fieldset>
-        <label>Imie &#10033;</label>
-        <input id="name" type="text">
-      </fieldset>
-
-      <fieldset>
-        <label>Email &#10033;</label>
-        <input id="email" type="text">
-      </fieldset>
-
-      <fieldset>
-        <label>Wiadomość &#10033;</label>
-        <textarea id="text" cols="40" type="text"></textarea>
-      </fieldset>
-      
-      <ul class="errors"></ul>
-      <div class="loading"></div>
-      <div class="success"></div>
-      
-      <button id="send_message" class="button" type="submit">Wyślij Wiadomość</button>
-    </form>
+  <section class="contact-box contact-image">
     
+    <button type="button" class="button open-modal">Contact Me</button>
+    
+    <div class="overlay">
+      <form name="my-form" onsubmit="return false" class="contact-form">
+        <div class="contact-header">
+          <h2>Skontaktuj się</h2>
+        </div>
+
+        <fieldset>
+          <label>Imie &#10033;</label>
+          <input id="name" type="text">
+        </fieldset>
+
+        <fieldset>
+          <label>Email &#10033;</label>
+          <input id="email" type="text">
+        </fieldset>
+
+        <fieldset>
+          <label>Wiadomość &#10033;</label>
+          <textarea id="text" cols="40" type="text"></textarea>
+        </fieldset>
+        
+        <ul class="errors"></ul>
+        <p class="loading"></p>
+        <p class="success"></p>
+        
+        <button id="send_message" class="button send" type="submit">Wyślij Wiadomość</button>
+      </form>
+    </div>
   </section>
 
   <footer class="footer-box">
