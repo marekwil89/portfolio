@@ -33,23 +33,36 @@ span {
 
 .header-image {
   background-repeat: no-repeat;
-  background-image: url("../img/image8.jpg");
+  background-color: #000000;
+  background-image: url("../img/stars.png");
   background-position: center;
   background-size: 110% 110%; }
-  .header-image .cloud {
+  .header-image .twinkling {
     position: absolute;
     top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    background: transparent url(http://www.script-tutorials.com/demos/360/images/twinkling.png) repeat top center;
+    z-index: 1;
+    -webkit-animation: move-twink-back 200s linear infinite;
+            animation: move-twink-back 200s linear infinite; }
+  .header-image .cloud {
+    z-index: 2;
+    position: absolute;
+    top: 35%;
     right: 0;
     left: 0;
     bottom: 0;
-    background-size: cover;
+    background-size: 70%;
     background-repeat: repeat-x; }
     .header-image .cloud.first {
-      background-image: url("../img/cloud1.png");
-      background-position: top; }
+      background-image: url("../img/cloud1.png"); }
     .header-image .cloud.second {
-      background-image: url("../img/cloud2.png");
-      background-position: bottom; }
+      background-image: url("../img/cloud2.png"); }
 
 .flip-box {
   width: 300px;
@@ -123,11 +136,14 @@ span {
 .contact-image {
   background-image: url("../img/image9.jpg");
   background-size: cover;
-  background-repeat: no-repeat;
-  background-position: left; }
+  background-position: center;
+  background-repeat: no-repeat; }
 
 @media (max-width: 760px) {
   .header-image .cloud {
+    display: none; } }
+@media (max-width: 500px) {
+  .flip-box {
     display: none; } }
 .header-box {
   position: relative;
@@ -209,6 +225,7 @@ span {
       .header-box .navbar.is-moved .logo {
         color: #333333; }
   .header-box .arrow-bottom {
+    z-index: 99;
     position: absolute;
     bottom: 25px;
     left: 50%;
@@ -216,7 +233,7 @@ span {
         -ms-transform: translate(-50%, 0);
             transform: translate(-50%, 0); }
     .header-box .arrow-bottom i {
-      color: #EEEEEE;
+      color: #ff3333;
       font-size: 60px;
       overflow: hidden;
       -webkit-animation: bounce 1s infinite;
@@ -230,6 +247,7 @@ span {
       cursor: pointer;
       color: #ff3333; }
   .header-box .main-box {
+    z-index: 3;
     width: 840px;
     position: relative; }
     .header-box .main-box .main-head {
@@ -458,6 +476,7 @@ span {
             justify-content: center;
     min-height: 85vh; }
     .hero-box .hero-articles .hero-ul {
+      margin: 2px 0;
       box-sizing: border-box;
       width: 350px;
       padding: 5px; }
@@ -480,9 +499,6 @@ span {
 @media (max-width: 1020px) {
   .hero-box .hero-header {
     min-width: 100%; }
-  .hero-box .hero-articles .author-photo {
-    min-width: 250px;
-    height: 310px; }
   .hero-box .hero-articles .hero-ul {
     width: 100%; } }
 .contact-box {
@@ -500,8 +516,19 @@ span {
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
-  color: #EEEEEE; }
+  color: #EEEEEE;
+  overflow: hidden;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center; }
   .contact-box .overlay {
+    z-index: -1;
     opacity: 0;
     -webkit-transition: 0.5s all;
             transition: 0.5s all;
@@ -510,80 +537,70 @@ span {
     right: 0;
     left: 0;
     bottom: 0;
-    z-index: -1;
-    background-color: rgba(51, 51, 51, 0.5);
-    background-size: cover;
-    overflow: hidden; }
+    background-color: rgba(51, 51, 51, 0.7); }
     .contact-box .overlay.is-showing {
       opacity: 1;
-      z-index: 1; }
-    .contact-box .overlay .contact-form {
-      -webkit-transition: 0.5s all;
-              transition: 0.5s all;
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      -webkit-transform: translate(-200%, -50%);
-          -ms-transform: translate(-200%, -50%);
-              transform: translate(-200%, -50%);
-      border-radius: 25px;
-      box-sizing: border-box;
-      padding: 20px;
-      background-color: #333333; }
-      .contact-box .overlay .contact-form.appear {
-        -webkit-transform: translate(-50%, -50%);
-            -ms-transform: translate(-50%, -50%);
-                transform: translate(-50%, -50%); }
-      .contact-box .overlay .contact-form .contact-header {
-        text-align: center;
-        margin-bottom: 20px; }
-      .contact-box .overlay .contact-form .loading {
-        text-align: center;
-        font-size: 14px;
-        letter-spacing: 2px;
-        font-weight: 700; }
-      .contact-box .overlay .contact-form .success {
-        text-align: center;
-        font-size: 14px;
+      z-index: 2; }
+  .contact-box .contact-form {
+    margin: 20px 0px;
+    opacity: 0;
+    z-index: -3;
+    -webkit-transition: 0.5s all ease;
+            transition: 0.5s all ease;
+    border-radius: 25px;
+    box-sizing: border-box;
+    padding: 20px;
+    background-color: rgba(67, 65, 62, 0.95);
+    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+    border: solid 7px #363432; }
+    .contact-box .contact-form.appear {
+      z-index: 3;
+      opacity: 1; }
+    .contact-box .contact-form .contact-header {
+      text-align: center;
+      margin-bottom: 20px; }
+    .contact-box .contact-form .response {
+      list-style-type: none;
+      padding-left: 0px;
+      text-align: center;
+      font-size: 14px;
+      line-height: 20px;
+      color: #ff6666;
+      letter-spacing: 2px;
+      font-weight: 700; }
+      .contact-box .contact-form .response.success {
+        color: #718dc8; }
+    .contact-box .contact-form fieldset {
+      border: none;
+      width: 100%;
+      padding: 15px 0;
+      margin: 0; }
+      .contact-box .contact-form fieldset label {
         padding: 15px;
         letter-spacing: 2px;
-        font-weight: 700; }
-      .contact-box .overlay .contact-form .errors {
-        font-size: 14px;
-        line-height: 20px;
-        color: #d9534f;
-        letter-spacing: 2px;
-        font-weight: 700; }
-      .contact-box .overlay .contact-form fieldset {
-        border: none;
+        font-weight: 300; }
+      .contact-box .contact-form fieldset input[type=text],
+      .contact-box .contact-form fieldset textarea[type=text] {
         width: 100%;
-        padding: 15px 0;
-        margin: 0; }
-        .contact-box .overlay .contact-form fieldset label {
-          padding: 15px;
-          letter-spacing: 2px;
-          font-weight: 300; }
-        .contact-box .overlay .contact-form fieldset input[type=text],
-        .contact-box .overlay .contact-form fieldset textarea[type=text] {
-          width: 100%;
-          padding: 15px;
-          border-radius: 10px;
-          box-sizing: border-box;
-          -webkit-transition: all 0.3s ease-in-out;
-                  transition: all 0.3s ease-in-out;
-          letter-spacing: 0.5px;
-          resize: none; }
-          .contact-box .overlay .contact-form fieldset input[type=text]:focus,
-          .contact-box .overlay .contact-form fieldset textarea[type=text]:focus {
-            outline: none;
-            background: #d9d9d9;
-            border: #999999 2px solid;
-            color: black; }
+        padding: 15px;
+        border-radius: 10px;
+        box-sizing: border-box;
+        -webkit-transition: all 0.3s ease-in-out;
+                transition: all 0.3s ease-in-out;
+        letter-spacing: 0.5px;
+        resize: none; }
+        .contact-box .contact-form fieldset input[type=text]:focus,
+        .contact-box .contact-form fieldset textarea[type=text]:focus {
+          outline: none;
+          background: #d9d9d9;
+          border: #999999 2px solid;
+          color: black; }
 
 @media (max-width: 650px) {
-  .contact-box .overlay .contact-form {
+  .contact-box .contact-form {
     width: 100%;
-    border-radius: 0px; } }
+    border-radius: 0px;
+    margin: 0; } }
 .footer-box {
   display: -webkit-box;
   display: -webkit-flex;
@@ -622,7 +639,7 @@ span {
   .footer-box .footer-info {
     text-align: center;
     min-width: 100%; } }
-.button {
+.button-send {
   text-transform: uppercase;
   border-radius: 3px;
   outline: 0;
@@ -631,34 +648,68 @@ span {
   box-sizing: border-box;
   text-align: center;
   -webkit-transition: 0.5s all ease-in-out;
-          transition: 0.5s all ease-in-out; }
-  .button.send {
-    border: 1px solid #EEEEEE;
-    background-color: transparent;
-    font-weight: 700;
-    color: #EEEEEE;
-    width: 100%;
-    font-size: 15px;
-    padding: 0 26px;
-    height: 46px; }
-    .button.send:hover {
-      cursor: pointer;
-      background-color: #ff3333;
-      border: 1px solid #ff3333;
-      color: #EEEEEE; }
-  .button.open-modal {
-    border: 0px;
-    background-color: #3B5998;
-    color: #EEEEEE;
-    font-size: 35px;
-    padding: 10px 15px;
-    box-shadow: 10px 10px 5px 0px rgba(86, 74, 98, 0.75); }
-    .button.open-modal:hover {
-      -webkit-transform: scale(1.1, 1.1);
-          -ms-transform: scale(1.1, 1.1);
-              transform: scale(1.1, 1.1);
-      cursor: pointer;
-      box-shadow: 15px 15px 10px 0px rgba(86, 74, 98, 0.75); }
+          transition: 0.5s all ease-in-out;
+  border: 1px solid #EEEEEE;
+  background-color: transparent;
+  font-weight: 700;
+  color: #EEEEEE;
+  width: 100%;
+  font-size: 15px;
+  padding: 0 26px;
+  height: 46px; }
+  .button-send:hover {
+    cursor: pointer;
+    background-color: #ff3333;
+    border: 1px solid #ff3333;
+    color: #EEEEEE; }
+
+.close-modal-btn:hover {
+  cursor: pointer; }
+
+.open-modal-btn {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  font-weight: 700;
+  font-family: "Patrick Hand SC", cursive;
+  -webkit-align-self: center;
+      -ms-flex-item-align: center;
+          align-self: center;
+  background: transparent;
+  padding: 10px 10px;
+  margin: 0 10px;
+  -webkit-transition: all 0.5s ease;
+          transition: all 0.5s ease;
+  color: #02060C;
+  font-size: 40px;
+  letter-spacing: 1px;
+  outline: none;
+  box-shadow: 20px 38px 34px -26px rgba(0, 0, 0, 0.2);
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+  border: solid 7px #02060C; }
+  .open-modal-btn:hover {
+    cursor: pointer;
+    background-color: #02060C;
+    color: #EEEEEE; }
+  .open-modal-btn .arrow {
+    -webkit-transform: rotate(-65deg);
+        -ms-transform: rotate(-65deg);
+            transform: rotate(-65deg);
+    -webkit-transition: 0.8s all;
+            transition: 0.8s all;
+    background-image: url("../img/arrow.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    bottom: -820px;
+    right: 10px;
+    width: 250px;
+    height: 130px; }
+    .open-modal-btn .arrow.move-up {
+      bottom: -190px; }
 
 .pre_loader {
   position: fixed;

@@ -18,7 +18,10 @@
   <link rel="stylesheet" href="assets/css/style.css">
   
   <link rel="stylesheet" href="bower_components/components-font-awesome/css/font-awesome.min.css">
+
   <link href='https://fonts.googleapis.com/css?family=Raleway:500,300,900,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+  <link href="https://fonts.googleapis.com/css?family=Patrick+Hand+SC" rel="stylesheet"> 
 
 
 </head>
@@ -37,6 +40,7 @@
   </div>
 
   <header class="header-box header-image">
+    <span class="twinkling"></span>
     <span class="cloud first"></span>
     <span class="cloud second"></span>
     <nav class="navbar">
@@ -45,6 +49,7 @@
       <i class="mobile-box fa fa-bars" aria-hidden="true"></i>
 
       <ul>
+        <li><a target="_blank" href="http://codepen.io/marekwil89/pens/public/"><i class="fa fa-codepen" aria-hidden="true"></i></a></li>
         <li><a target="_blank" href="https://github.com/marekwil89"><i class="fa fa-git-square" aria-hidden="true"></i></a></li>
         <li><a target="_blank" href="https://www.facebook.com/marek.wilczek.3"><i class="fa fa-facebook-official" aria-hidden="true"></i></a></li>
         <li><a href="#about">O Mnie</a></li>
@@ -66,8 +71,7 @@
   <section class="hero-box" id="about">
     <div class="hero-header">
       <h2 class="hero-title">Kim jestem ?</h2>
-      <p class="hero-text">Jestem książkowym przykładem autodydakty, nie chodzę na randki, bo koduję <span>w domu</span>.</p>
-      <p class="hero-text">Żartuje, mam dziewczynę, serio... No dobrze, ale dlaczego ja ?</p>
+      <p class="hero-text">Jestem książkowym przykładem autodydakty, nie chodzę na randki, bo koduję <span>w domu</span>. Żartuje, mam dziewczynę, serio... No dobrze, ale dlaczego ja ?</p>
     </div>
     <article class="hero-articles">
 
@@ -94,15 +98,13 @@
 
       
       <div class="flip-box">
-       
         <div class="flipper"> 
-
           <div class="front">
             <span class="hover-me">Hover me !</span>
-            <img src="assets/img/front.jpg" alt="">
+            <img src="assets/img/front.jpg" alt="author-photo">
           </div>
           <div class="back">
-            <img src="assets/img/back.jpg" alt="">
+            <img src="assets/img/back.jpg" alt="author-photo">
           </div>
         </div>
       </div>
@@ -193,38 +195,37 @@
     </div>
   </section>
 
-  <section class="contact-box contact-image">
-    
-    <button type="button" class="button open-modal">Contact Me</button>
-    
-    <div class="overlay">
-      <form name="my-form" onsubmit="return false" class="contact-form">
-        <div class="contact-header">
-          <h2>Skontaktuj się</h2>
-        </div>
+  <section class="contact-box contact-image" id="contact">
+    <button type="button" class="open-modal-btn"><span class="arrow"></span>Skontaktuj się !</button>
 
-        <fieldset>
-          <label>Imie &#10033;</label>
-          <input id="name" type="text">
-        </fieldset>
+    <span class="overlay"></span>
+    <form name="my-form" onsubmit="return false" class="contact-form">
+      <a type="button" class="close-modal-btn">X</a>
+      <div class="contact-header">
+        <h2>Skontaktuj się</h2>
+      </div>
 
-        <fieldset>
-          <label>Email &#10033;</label>
-          <input id="email" type="text">
-        </fieldset>
+      <fieldset>
+        <label>Imie &#10033;</label>
+        <input id="name" type="text">
+      </fieldset>
 
-        <fieldset>
-          <label>Wiadomość &#10033;</label>
-          <textarea id="text" cols="40" type="text"></textarea>
-        </fieldset>
-        
-        <ul class="errors"></ul>
-        <p class="loading"></p>
-        <p class="success"></p>
-        
-        <button id="send_message" class="button send" type="submit">Wyślij Wiadomość</button>
-      </form>
-    </div>
+      <fieldset>
+        <label>Email &#10033;</label>
+        <input id="email" type="text">
+      </fieldset>
+
+      <fieldset>
+        <label>Wiadomość &#10033;</label>
+        <textarea id="text" cols="40" type="text"></textarea>
+      </fieldset>
+      
+      <ul class="response"></ul>
+<!--         <p class="loading"></p>
+      <p class="success"></p> -->
+      
+      <button id="send_message" class="button-send" type="submit">Wyślij Wiadomość</button>
+    </form>
   </section>
 
   <footer class="footer-box">
@@ -235,7 +236,7 @@
       <p>telefon | 881 469 849</p>
     </div>
 
-    <div class="copyright">Marek Wilczek - portfolio @ copyright 2016 - <a target="_blank" href="https://www.facebook.com/marek.wilczek.3"><i class="fa fa-facebook-official" aria-hidden="true"></i></a> <a target="_blank" href="https://github.com/marekwil89"><i class="fa fa-github" aria-hidden="true"></i></a></div>
+    <div class="copyright">Marek Wilczek - portfolio @ copyright 2016 - <a target="_blank" href="https://www.facebook.com/marek.wilczek.3"><i class="fa fa-facebook-official" aria-hidden="true"></i></a> <a target="_blank" href="https://github.com/marekwil89"><i class="fa fa-github" aria-hidden="true"></i></a> <a target="_blank" href="http://codepen.io/marekwil89/pens/public/"><i class="fa fa-codepen" aria-hidden="true"></i></a></div>
 
 
   </footer>

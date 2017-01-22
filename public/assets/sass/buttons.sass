@@ -1,6 +1,6 @@
 //buttons
 
-.button
+.button-send
     text-transform: uppercase
     border-radius: 3px
     outline: 0
@@ -9,37 +9,64 @@
     box-sizing: border-box
     text-align: center
     transition: 0.5s all ease-in-out
+    border: 1px solid $white-color
+    background-color: transparent
+    font-weight: 700
+    color: $white-color
+    width: 100%
+    font-size: 15px
+    padding: 0 26px
+    height: 46px
 
-
-    &.send
-        border: 1px solid $white-color
-        background-color: transparent
-        font-weight: 700
+    &:hover
+        cursor: pointer
+        background-color: $main-color
+        border: 1px solid $main-color
         color: $white-color
-        width: 100%
-        font-size: 15px
-        padding: 0 26px
-        height: 46px
 
-        &:hover
-            cursor: pointer
-            background-color: $main-color
-            border: 1px solid $main-color
-            color: $white-color
+.close-modal-btn
 
-    &.open-modal
-        border: 0px
-        background-color: $facebook-color
+    &:hover
+        cursor: pointer
+
+
+.open-modal-btn
+    position: absolute
+    left: 50%
+    top: 50%
+    transform: translate(-50%, -50%)
+    font-weight: 700
+    font-family: 'Patrick Hand SC', cursive
+    align-self: center
+    background: transparent
+    padding: 10px 10px
+    margin: 0 10px
+    transition: all 0.5s ease
+    color:  $real-dark
+    font-size:  40px
+    letter-spacing: 1px
+    outline: none
+    box-shadow: 20px 38px 34px -26px hsla(0,0%,0%,.2)
+    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px
+    border: solid 7px $real-dark
+
+    &:hover
+        cursor: pointer
+        background-color: $real-dark
         color: $white-color
-        font-size: 35px
-        padding: 10px 15px
-        box-shadow: 10px 10px 5px 0px rgba($real-light ,0.75)
 
-        &:hover
-            transform: scale(1.1,1.1)
-            cursor: pointer
-            box-shadow: 15px 15px 10px 0px rgba($real-light ,0.75)
+    .arrow
+        transform: rotate(-65deg)
+        transition: 0.8s all
+        background-image: url('../img/arrow.png')
+        background-repeat: no-repeat
+        background-size: contain
+        position: absolute
+        bottom: -820px
+        right: 10px
+        width: 250px
+        height: 130px
 
-
-
+        &.move-up
+            bottom: -190px
 

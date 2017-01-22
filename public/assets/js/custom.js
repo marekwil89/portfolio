@@ -19,19 +19,21 @@ $(document).ready(function(){
       startCount = false;
     }
 
+    arrowMoveUp(wScroll)
     showHeroAtributs(wScroll);
     navbarColor(wScroll);
   });
 
   //start functions
 
-  moveClouds('.first', 50);
-  moveClouds('.second', 10);
+  movePng('.first', 50);
+  movePng('.twinkling', 40)
+  movePng('.second', 10);
   sendMessage();
   openNav();
   anchorScroll();
   showContactForm();
-
+  hideContactForm();
   //count function
 
   function countMe(element, add){
@@ -64,8 +66,7 @@ function sendMessage(){
 
   $("#send_message").click(function(){
 
-    $(".errors").text('');
-    $(".success").text('');
+    $(".response").removeClass('success').text('');
 
     var user = {
       name: $("#name").val(),
@@ -73,27 +74,28 @@ function sendMessage(){
       text: $("#text").val()
     };
 
-    $(".loading").text('ładowanie...').fadeIn("slow").delay(700).fadeOut("slow", function(){
-      $.post( "message/post", user, function( data ) {
+    $(".response").text('ładowanie...')
+    setTimeout(function(){
+      $.post( "message/post", user, function(data) {
 
         if(data.status === 'alert'){
-          $(".success").text('');
           var errors = [];
           for(var i = 0; i < data.response.length; i++){
             errors.push('<li>' + data.response[i] + '</li>');
           }
-          $(".errors").html(errors.join(''));
+          $(".response").html(errors.join(''));
         }
 
         if(data.status === 'success'){
-          $(".errors").text('');
           $("#name").val('');
           $("#email").val('');
           $("#text").val('');
-          $(".success").text(data.response);
+          $(".response").addClass('success').text(data.response)
         }
       });
-    });
+    }, 700)
+
+
   });
 }
 
@@ -118,9 +120,17 @@ function showHeroAtributs(wScroll){
   }
 }
 
+function arrowMoveUp(wScroll){
+  if(wScroll > $('.contact-box').offset().top - ($(window).height()/1.9)){
+    $('.arrow').addClass('move-up')
+  }
+}
+
+
+
 //moved clouds
 
-function moveClouds(img, speed){
+function movePng(img, speed){
   var i = 0
   setInterval(function(){
       i++
@@ -162,9 +172,15 @@ function anchorScroll(){
 //show contact form
 
 function showContactForm(){
-  $(".open-modal").click(function(){
+  $(".open-modal-btn").click(function(){
     $(".overlay").addClass('is-showing');
     $(".contact-form").addClass('appear');
+  })
+}
+function hideContactForm(){
+  $(".close-modal-btn").click(function(){
+    $(".overlay").removeClass('is-showing');
+    $(".contact-form").removeClass('appear');
   })
 }
 
