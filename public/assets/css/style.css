@@ -350,7 +350,7 @@ span {
       width: 50%; } }
 .projects-box {
   background-color: #EEEEEE;
-  min-height: 100vh;
+  min-height: 120vh;
   color: #333333; }
   .projects-box .projects-header {
     display: -webkit-box;
@@ -419,6 +419,39 @@ span {
         .projects-box .projects-gallery .project:hover .mask {
           opacity: 1;
           cursor: pointer; }
+  .projects-box .projects-others {
+    min-height: 40vh;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column; }
+    .projects-box .projects-others h2 {
+      text-align: center; }
+    .projects-box .projects-others ul {
+      box-sizing: border-box;
+      width: 350px; }
+      .projects-box .projects-others ul li {
+        margin: 5px; }
+        .projects-box .projects-others ul li a {
+          color: #333333;
+          text-decoration: none; }
+          .projects-box .projects-others ul li a:hover {
+            text-decoration: underline; }
+        .projects-box .projects-others ul li span {
+          color: #ff3333; }
 
 @media (max-width: 840px) {
   .projects-box .projects-header {

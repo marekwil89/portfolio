@@ -1,73 +1,98 @@
 .projects-box
-    background-color: $white-color
-    min-height: 100vh
-    color: $gray-color
+  background-color: $white-color
+  min-height: 120vh
+  color: $gray-color
 
-    .projects-header
-        display: flex
-        justify-content: center
-        align-items: center
-        flex-direction: column
-        min-height: 40vh
+  .projects-header
+    display: flex
+    justify-content: center
+    align-items: center
+    flex-direction: column
+    min-height: 40vh
+
+    span
+      color: $main-color
+      font-weight: 700
+
+  .projects-gallery
+    display: flex
+    flex-wrap: wrap
+    min-height: 40vh
+    
+    .project
+      position: relative
+      box-sizing: border-box
+      border: 0.1px solid $light-gray
+      display: flex
+      justify-content: center
+      align-items: center  
+      width: 25%
+
+      .mask
+        position: absolute
+        padding: 10px
+        bottom: 0
+        right: 0
+        left: 0
+        opacity: 0
+        min-height: 100px
+        background-color: $gray-color
+        color: $white-color
+        transition: 0.5s all ease-in-out
+          
+        p
+          text-align: justify
+
+      &:hover
+        cursor: pointer
+
+        .mask
+          opacity: 1
+          cursor: pointer
+
+  .projects-others
+    min-height: 40vh
+    display: flex
+    justify-content: center
+    align-items: center
+    flex-direction: column
+
+    h2
+      text-align: center
+
+    ul
+      box-sizing: border-box
+      width: 350px
+
+      li
+        margin: 5px
+        a
+          color: $gray-color
+          text-decoration: none
+
+          &:hover
+            text-decoration: underline
 
         span
-            color: $main-color
-            font-weight: 700
-
-    .projects-gallery
-        display: flex
-        flex-wrap: wrap
-        min-height: 40vh
-        
-        .project
-            position: relative
-            box-sizing: border-box
-            border: 0.1px solid $light-gray
-            display: flex
-            justify-content: center
-            align-items: center  
-            width: 25%
-
-            .mask
-                position: absolute
-                padding: 10px
-                bottom: 0
-                right: 0
-                left: 0
-                opacity: 0
-                min-height: 100px
-                background-color: $gray-color
-                color: $white-color
-                transition: 0.5s all ease-in-out
-                
-                p
-                    text-align: justify
-
-            &:hover
-                cursor: pointer
-
-                .mask
-
-                    opacity: 1
-                    cursor: pointer
+          color: $main-color
 
 
 @media (max-width: 840px)
-    .projects-box
-        .projects-header
-            text-align: center
+  .projects-box
+    .projects-header
+      text-align: center
 
-        .projects-gallery
-            .project
-                width: 50%
-                min-height: 200px
+    .projects-gallery
+      .project
+        width: 50%
+        min-height: 200px
 
-                .mask
-                    top: 0px
-                    opacity: 1
+        .mask
+          top: 0px
+          opacity: 1
 
 @media (max-width: 480px)
-    .projects-box
-        .projects-gallery
-            .project
-                width: 100%
+  .projects-box
+    .projects-gallery
+      .project
+        width: 100%
